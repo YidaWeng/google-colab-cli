@@ -18,6 +18,7 @@ End-to-end tests that run against a **live Colab backend** (unlike the mocked un
 | `repro_bundled_oauth/` | Fast smoke test (~5s): verifies that the fallback OAuth configuration is loaded and starts the OAuth flow with the default client ID when local config is missing. |
 | `repro_ssh/` | Fast smoke test (~5s): `--help` advertises the flags and an unknown session exits. Slow soak test (~95s): Live e2e allocates a CPU VM, runs a real remote command over `colab ssh --proxy-mode` |
 | `repro_windows_ssh/` | Native Windows live CPU test: Windows OpenSSH launches the generated ProxyCommand, executes a remote marker command, and releases the recorded runtime. Requires cached OAuth2 credentials; exits 77 if prerequisites are missing. |
+| `repro_idle_timeout/` | Slow soak test (~8m): Live CPU runtime verification of `--timeout` idle-limit behavior across `jupyter-kernel-client` 0.8.0, 0.9.0, and 1.0.2 (`colab run` / `colab exec` streaming vs. silent runs, client CPU usage, and `SIGINT` teardown). |
 
 
 ## Running
